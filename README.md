@@ -8,12 +8,12 @@ A personal developer portfolio built with React and Vite. The application featur
 
 ## 🌟 Key Features
 
--**Dynamic Typewriter Hero**: Custom character-by-character typing animation with a blinking neon purple cursor built using native React hooks (`useState`, `useEffect`).
--**Active Scrollspy Navigation**: Synchronized navbar highlighting with animated pills that track viewport coordinates (`scrollY`, `offsetTop`, and bottom boundary detection).
--**Responsive Layout & Grid**: Mobile-first architecture tested across mobile (375px+), tablet/iPad (1032px), and desktop viewports with fluid CSS `clamp()` typography.
--**Glassmorphism Aesthetic**: Dark purple palette featuring frosted-glass backdrops (`backdrop-filter`), ambient neon glow accents, and staggered entrance keyframes.
--**Strict Affordance & Accessibility**: Distinct separation of interactive elements (`cursor: pointer` on buttons/links) and static badges (`cursor: default` on informational cards) to eliminate dead-click confusion.
--**Smooth Scroll-to-Top**: Floating action button that activates dynamically past scroll thresholds with animated transitions.
+- **Dynamic Typewriter Hero**: Custom character-by-character typing animation with a blinking neon purple cursor built using native React hooks (`useState`, `useEffect`).
+- **Active Scrollspy Navigation**: Synchronized navbar highlighting with animated pills that track viewport coordinates (`scrollY`, `offsetTop`, and bottom boundary detection).
+- **Responsive Layout & Grid**: Mobile-first architecture tested across mobile (375px+), tablet/iPad (1032px), and desktop viewports with fluid CSS `clamp()` typography.
+- **Glassmorphism Aesthetic**: Dark purple palette featuring frosted-glass backdrops (`backdrop-filter`), ambient neon glow accents, and staggered entrance keyframes.
+- **Strict Affordance & Accessibility**: Distinct separation of interactive elements (`cursor: pointer` on buttons/links) and static badges (`cursor: default` on informational cards) to eliminate dead-click confusion.
+- **Smooth Scroll-to-Top**: Floating action button that activates dynamically past scroll thresholds with animated transitions.
 
 ---
 
