@@ -1,0 +1,76 @@
+
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 2rem;
+  background-color: rgba(10, 6, 18, 0.75);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+  transition: all 0.3s ease;
+}
+
+.nav-logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #c084fc;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 0.5rem;
+}
+
+/* Base Nav Pill Link */
+.nav-link {
+  display: inline-block;
+  text-decoration: none;
+  color: #cbd5e1;
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.45rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  transition: all 0.25s ease;
+}
+
+.nav-link:hover {
+  color: #f8fafc;
+  background-color: rgba(168, 85, 247, 0.12);
+}
+
+/* Active Section Pill (matches your second image) */
+.nav-link.active {
+  background-color: #a855f7 !important;
+  color: #0a0612 !important;
+  font-weight: 700;
+  border-color: #a855f7 !important;
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.55);
+}
+
+@media (max-width: 640px) {
+  .navbar {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+  }
+
+  .nav-links {
+    gap: 0.35rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .nav-link {
+    font-size: 0.85rem;
+    padding: 0.35rem 0.75rem;
+  }
+}
