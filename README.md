@@ -1,16 +1,113 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+```markdown
+# Developer Portfolio | Tomalika Paul Toma
 
-Currently, two official plugins are available:
+A personal developer portfolio built with React and Vite. The application features a dark-themed glassmorphic UI, responsive layouts across devices, custom neon hover states, dynamic typewriter headings, and active scrollspy navigation.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🌟 Key Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Dynamic Typewriter Hero**: Custom character-by-character typing animation with a blinking neon purple cursor built using native React hooks (`useState`, `useEffect`).
+- **Active Scrollspy Navigation**: Synchronized navbar highlighting with animated pills that track viewport coordinates (`scrollY`, `offsetTop`, and bottom boundary detection).
+- **Responsive Layout & Grid**: Mobile-first architecture tested across mobile (375px+), tablet/iPad (1032px), and desktop viewports with fluid CSS `clamp()` typography.
+- **Glassmorphism Aesthetic**: Dark purple palette featuring frosted-glass backdrops (`backdrop-filter`), ambient neon glow accents, and staggered entrance keyframes.
+- **Strict Affordance & Accessibility**: Distinct separation of interactive elements (`cursor: pointer` on buttons/links) and static badges (`cursor: default` on informational cards) to eliminate dead-click confusion.
+- **Smooth Scroll-to-Top**: Floating action button that activates dynamically past scroll thresholds with animated transitions.
 
-## Expanding the Oxlint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## 🛠️ Tech Stack
+
+- **Frontend Framework**: React 18 / 19
+- **Build Tool**: Vite
+- **Styling**: Modern CSS3 (CSS Grid, Flexbox, Custom Keyframes, Glassmorphism)
+- **Deployment**: GitHub Pages / Vercel
+
+---
+
+## 📁 Project Structure
+
+```text
+my-portfolio/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── Contact.jsx / Contact.css
+│   │   ├── Footer.jsx / Footer.css
+│   │   ├── Hero.jsx / Hero.css
+│   │   ├── Navbar.jsx / Navbar.css
+│   │   ├── Projects.jsx / Projects.css
+│   │   ├── ScrollToTop.jsx / ScrollToTop.css
+│   │   └── Skills.jsx / Skills.css
+│   ├── data/
+│   │   └── projects.js
+│   ├── App.jsx / App.css
+│   ├── index.css
+│   └── main.jsx
+├── index.html
+├── package.json
+└── vite.config.js
+
+```
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+* Node.js (v18 or higher recommended)
+* npm or yarn
+
+### Installation & Local Setup
+
+1. **Clone the repository**:
+```bash
+git clone [https://github.com/your-username/my-portfolio.git](https://github.com/your-username/my-portfolio.git)
+cd my-portfolio
+
+```
+
+
+2. **Install dependencies**:
+```bash
+npm install
+
+```
+
+
+3. **Start the local development server**:
+```bash
+npm run dev
+
+```
+
+
+4. **Run on local network (for mobile/tablet testing)**:
+```bash
+npm run dev -- --host
+
+```
+
+
+Open the displayed `Network: http://<your-ip>:5173/` address on your mobile device connected to the same Wi-Fi.
+5. **Build for production**:
+```bash
+npm run build
+
+```
+
+
+
+---
+
+## 📬 Contact & Connect
+
+* **Developer**: Tomalika Paul Toma
+* **Email**: tomapaul150@gmail.com
+
+```
+
+```
