@@ -17,10 +17,10 @@ export const projectsData = [
   },
   {
     id: 3,
-    title: "Developer Portfolio",
+    title: "Personal Portfolio Website",
     description: "A modern, responsive personal portfolio built with React and Vite to showcase software projects and technical skills.",
     tech: ["React", "JavaScript", "Responsive CSS", "Vite"],
-    github: "https://github.com",
+    github: "https://github.com/toma003/my-portfolio",
     demo: "#"
   }
 ];
