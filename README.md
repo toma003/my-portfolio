@@ -1,28 +1,27 @@
-
-```markdown
 # Developer Portfolio | Tomalika Paul Toma
 
-A personal developer portfolio built with React and Vite. The application features a dark-themed glassmorphic UI, responsive layouts across devices, custom neon hover states, dynamic typewriter headings, and active scrollspy navigation.
+A responsive personal developer portfolio built with React and Vite. The site features a cyber-navy glassmorphism design, interactive section highlights, custom modal dialogs, and dynamic scrollspy navigation.
 
 ---
 
 ## 🌟 Key Features
 
-- **Dynamic Typewriter Hero**: Custom character-by-character typing animation with a blinking neon purple cursor built using native React hooks (`useState`, `useEffect`).
-- **Active Scrollspy Navigation**: Synchronized navbar highlighting with animated pills that track viewport coordinates (`scrollY`, `offsetTop`, and bottom boundary detection).
-- **Responsive Layout & Grid**: Mobile-first architecture tested across mobile (375px+), tablet/iPad (1032px), and desktop viewports with fluid CSS `clamp()` typography.
-- **Glassmorphism Aesthetic**: Dark purple palette featuring frosted-glass backdrops (`backdrop-filter`), ambient neon glow accents, and staggered entrance keyframes.
-- **Strict Affordance & Accessibility**: Distinct separation of interactive elements (`cursor: pointer` on buttons/links) and static badges (`cursor: default` on informational cards) to eliminate dead-click confusion.
-- **Smooth Scroll-to-Top**: Floating action button that activates dynamically past scroll thresholds with animated transitions.
+- **Cyber-Navy & Cyan Glassmorphism**: Translucent midnight-navy backdrops with frosted blur effects (`backdrop-filter`), subtle borders, and neon cyan accents.
+- **Scrollspy Navigation & Mobile Menu**: Dynamic sticky header with an interactive monogram logo, active-section pill indicators, a standout "Let's Talk" CTA, and an animated mobile drawer menu.
+- **Dynamic Typewriter Hero**: Character-by-character typing animation with a blinking neon cursor built using React hooks (`useState`, `useEffect`).
+- **Academic Timeline (Education)**: Structured milestone cards displaying degree tracks, institutions, coursework, and live status badges.
+- **Interactive Skills & Project Showcases**: Card grids featuring project tag filters, external repository links, and deep-dive modal dialogs for technical overviews.
+- **Contact Hub & Form**: Integrated contact card with direct social profiles (GitHub, LinkedIn), email reach-out, and an inquiry form.
+- **Smooth Scroll-to-Top**: Floating action button that activates dynamically when scrolling past the hero viewport.
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Frontend Framework**: React 18 / 19
+- **Frontend**: React (Hooks, Component Architecture)
 - **Build Tool**: Vite
-- **Styling**: Modern CSS3 (CSS Grid, Flexbox, Custom Keyframes, Glassmorphism)
-- **Deployment**: GitHub Pages / Vercel
+- **Styling**: Modern CSS3 (Flexbox, CSS Grid, Media Queries, Glassmorphism)
+- **Deployment**: Vercel
 
 ---
 
@@ -33,9 +32,12 @@ my-portfolio/
 ├── public/
 ├── src/
 │   ├── assets/
+│   │   ├── hero.png
+│   │   ├── profile.jpg
+│   │   └── vite.svg
 │   ├── components/
 │   │   ├── Contact.jsx / Contact.css
-│   │   ├── Footer.jsx / Footer.css
+│   │   ├── Education.jsx / Education.css
 │   │   ├── Hero.jsx / Hero.css
 │   │   ├── Navbar.jsx / Navbar.css
 │   │   ├── Projects.jsx / Projects.css
@@ -49,65 +51,3 @@ my-portfolio/
 ├── index.html
 ├── package.json
 └── vite.config.js
-
-```
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-* Node.js (v18 or higher recommended)
-* npm or yarn
-
-### Installation & Local Setup
-
-1. **Clone the repository**:
-```bash
-git clone [https://github.com/your-username/my-portfolio.git](https://github.com/your-username/my-portfolio.git)
-cd my-portfolio
-
-```
-
-
-2. **Install dependencies**:
-```bash
-npm install
-
-```
-
-
-3. **Start the local development server**:
-```bash
-npm run dev
-
-```
-
-
-4. **Run on local network (for mobile/tablet testing)**:
-```bash
-npm run dev -- --host
-
-```
-
-
-Open the displayed `Network: http://<your-ip>:5173/` address on your mobile device connected to the same Wi-Fi.
-5. **Build for production**:
-```bash
-npm run build
-
-```
-
-
-
----
-
-## 📬 Contact & Connect
-
-* **Developer**: Tomalika Paul Toma
-* **Email**: tomapaul150@gmail.com
-
-```
-
-```
