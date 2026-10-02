@@ -1,4 +1,5 @@
 # Developer Portfolio | Tomalika Paul Toma
+🔗 **Live Demo:** [View Live Website](https://my-portfolio-dun-rho-37.vercel.app)
 
 A responsive personal developer portfolio built with React and Vite. The site features a cyber-navy glassmorphism design, interactive section highlights, custom modal dialogs, and dynamic scrollspy navigation.
 
