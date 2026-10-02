@@ -57,7 +57,7 @@ my-portfolio/
 🚀 Getting Started Locally
 1. Clone the repository
 ```
-git clone [https://github.com/your-username/my-portfolio.git](https://github.com/your-username/my-portfolio.git)
+git clone [https://github.com/toma003/my-portfolio.git](https://github.com/toma003/my-portfolio.git)
 cd my-portfolio
 ```
 2. Install dependencies
