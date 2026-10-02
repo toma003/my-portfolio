@@ -1,18 +1,30 @@
-
-
-
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './Contact.css';
 
-function Contact() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+/* ==========================================================================
+   TEACHER CONTROL SWITCH: SCROLL POP-UP TOGGLE
+   Set to `true` to animate the contact card smoothly on scroll.
+   Set to `false` to display immediately without animation.
+   ========================================================================== */
+const ENABLE_SCROLL_ANIMATION = true;
 
-  const [isVisible, setIsVisible] = useState(false);
+const Contact = () => {
+  /* Scroll pop-up visibility */
+  const [isVisible, setIsVisible] = useState(!ENABLE_SCROLL_ANIMATION);
   const sectionRef = useRef(null);
 
+  /* Form state */
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    message: ''
+  });
+  const [submitted, setSubmitted] = useState(false);
+
   useEffect(() => {
+    if (!ENABLE_SCROLL_ANIMATION) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -20,7 +32,7 @@ function Contact() {
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.05 }
+      { threshold: 0.15 }
     );
 
     if (sectionRef.current) {
@@ -30,126 +42,157 @@ function Contact() {
     return () => observer.disconnect();
   }, []);
 
-  const handleOpen = () => {
-    setIsSubmitted(false);
-    setFormData({ name: '', email: '', message: '' });
-    setIsOpen(true);
-  };
-
-  const handleClose = () => {
-    setIsOpen(false);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsSubmitted(true);
+    // Simulate submission
+    setSubmitted(true);
+    setTimeout(() => {
+      setSubmitted(false);
+      setFormData({ firstName: '', lastName: '', email: '', message: '' });
+    }, 4000);
   };
 
   return (
-    <section id="contact" className="contact-section" ref={sectionRef}>
-      <div className="section-header">
-        <h2 className="section-title">Get In Touch</h2>
-        <div className="section-underline"></div>
-      </div>
+    <section className="contact-footer-section" id="contact" ref={sectionRef}>
+      <div className="contact-wrapper">
 
-      <div className={`contact-card ${isVisible ? 'is-visible' : ''}`}>
-        <p className="contact-message">
-          I'm currently looking for opportunities to learn and collaborate. Feel free
-          to reach out if you'd like to connect.
-        </p>
+        {/* =========================================================
+            1. UNIFIED GET IN TOUCH GLASS CARD (2 Columns)
+           ========================================================= */}
+        <div className={`contact-card ${isVisible ? 'is-visible' : ''}`}>
+          
+          {/* Left Column: Info & Socials */}
+          <div className="contact-info-col">
+            <span className="contact-badge">LET'S CONNECT</span>
+            <h2 className="contact-title">Get in Touch</h2>
+            <h3 className="contact-tagline">I'd like to hear from you!</h3>
+            
+            <p className="contact-description">
+              I'm currently looking for new opportunities to learn and collaborate. 
+              Whether you have a question, a project idea, or just want to say hi, 
+              feel free to reach out!
+            </p>
 
-        <button type="button" onClick={handleOpen} className="email-button">
-          Say Hello
-        </button>
-
-        <p className="contact-email-text">
-          or email directly at: <span>tomapaul150@gmail.com</span>
-        </p>
-
-        <div className="contact-links">
-          {/* GitHub Icon */}
-          <a
-            href="https://github.com/toma003"
-            target="_blank"
-            rel="noreferrer"
-            className="social-icon-btn"
-            title="GitHub"
-          >
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-              <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-            </svg>
-          </a>
-
-          {/* LinkedIn Icon */}
-          <a
-            href="https://www.linkedin.com/in/tomalika-paul-t-3514503a2/"
-            target="_blank"
-            rel="noreferrer"
-            className="social-icon-btn"
-            title="LinkedIn"
-          >
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.45 1.45 0 1 0-.01-2.9 1.45 1.45 0 0 0 .01 2.9m1.37 9.74V9.94H5.1v8.56h2.73z"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-
-      {/* POPUP MODAL */}
-      {isOpen && (
-        <div className="modal-overlay" onClick={handleClose}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close-btn" onClick={handleClose}>✕</button>
-            <div className="modal-header">
-              <span className="modal-icon">✉</span>
-              <h3 className="modal-title">Contact Me</h3>
+            {/* Email Direct Link */}
+            <div className="contact-direct-email">
+              <span className="email-icon">✉</span>
+              <a href="mailto:tomalikapaul150@gmail.com" className="email-link">
+                tomapaul150@gmail.com
+              </a>
             </div>
-            {isSubmitted ? (
-              <div className="modal-success">
-                <h4>Message Sent!</h4>
-                <p>Thank you for reaching out. I'll get back to you soon.</p>
-                <button type="button" className="email-button" onClick={handleClose}>Close</button>
-              </div>
-            ) : (
-              <form className="modal-form" onSubmit={handleSubmit}>
-                <div className="form-group">
-                  <label>Your Name</label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="Enter name"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  />
-                </div>
-                <div className="form-group">
-                  <label>Your Email</label>
-                  <input
-                    type="email"
-                    required
-                    placeholder="Enter email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  />
-                </div>
-                <div className="form-group">
-                  <label>Your Message</label>
-                  <textarea
-                    rows="4"
-                    required
-                    placeholder="Enter your message"
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  ></textarea>
-                </div>
-                <button type="submit" className="submit-btn">Send Message ✉</button>
-              </form>
-            )}
+
+            {/* Social Icons */}
+            <div className="contact-socials">
+              <a 
+                href="https://github.com/toma003" 
+                target="_blank" 
+                rel="noreferrer" 
+                className="social-btn" 
+                aria-label="GitHub"
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor" className="social-svg">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+              </a>
+              <a 
+                href="https://linkedin.com/in/tomalika-paul-t-3514503a2/" 
+                target="_blank" 
+                rel="noreferrer" 
+                className="social-btn" 
+                aria-label="LinkedIn"
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor" className="social-svg">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+              </a>
+            </div>
           </div>
+
+          {/* Right Column: Interactive Form */}
+          <div className="contact-form-col">
+            <form onSubmit={handleSubmit} className="contact-form">
+              <div className="form-row-dual">
+                <div className="form-group">
+                  <label htmlFor="firstName">First Name</label>
+                  <input 
+                    type="text" 
+                    id="firstName" 
+                    name="firstName" 
+                    required 
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    placeholder="Jane"
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="lastName">Last Name</label>
+                  <input 
+                    type="text" 
+                    id="lastName" 
+                    name="lastName" 
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    placeholder="Doe"
+                  />
+                </div>
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="email">Email *</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  required 
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="jane.doe@example.com"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="message">Message *</label>
+                <textarea 
+                  id="message" 
+                  name="message" 
+                  rows="4" 
+                  required 
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Write your message here..."
+                ></textarea>
+              </div>
+
+              <div className="form-actions">
+                <button type="submit" className="contact-submit-btn">
+                  Send Message →
+                </button>
+                {submitted && (
+                  <span className="submit-success-msg">✓ Message recorded!</span>
+                )}
+              </div>
+            </form>
+          </div>
+
         </div>
-      )}
+
+        {/* =========================================================
+            2. INTEGRATED FOOTER BAR (Clean & Centered)
+           ========================================================= */}
+        <div className="integrated-footer">
+          <p className="footer-copyright">
+            Designed & Built by <span className="highlight-name">Tomalika Paul Toma</span> • © {new Date().getFullYear()}
+          </p>
+        </div>
+
+      </div>
     </section>
   );
-}
+};
 
 export default Contact;

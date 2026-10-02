@@ -1,82 +1,116 @@
-
-
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 
-function Navbar() {
-  const [activeSection, setActiveSection] = useState('about');
+/* ==========================================================================
+   NAVIGATION CONFIGURATION
+   (Edit or add sections here)
+   ========================================================================== */
+const NAV_ITEMS = [
+  { id: 'home', label: 'Home' },
+  { id: 'education', label: 'Education' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'projects', label: 'Projects' }
+];
 
-useEffect(() => {
-  const sections = document.querySelectorAll('section[id], header[id]');
+const Navbar = () => {
+  const [activeSection, setActiveSection] = useState('home');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const handleScroll = () => {
-    const scrollY = window.scrollY;
-    const windowHeight = window.innerHeight;
-    const documentHeight = document.documentElement.scrollHeight;
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
 
-    // 1. If reached the very bottom of the page, highlight 'contact'
-    if (windowHeight + scrollY >= documentHeight - 60) {
-      setActiveSection('contact');
-      return;
-    }
-
-    // 2. Otherwise, calculate standard section intersection
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop - 140;
-      const sectionHeight = section.offsetHeight;
-      const sectionId = section.getAttribute('id');
-
-      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-        setActiveSection(sectionId);
+      // 1. Highlight contact when user reaches bottom
+      if (windowHeight + scrollY >= documentHeight - 80) {
+        setActiveSection('contact');
+        return;
       }
-    });
+
+      // 2. Track active section
+      const allSections = document.querySelectorAll('section[id]');
+      allSections.forEach((section) => {
+        const sectionTop = section.offsetTop - 150;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+          setActiveSection(sectionId);
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const closeMenu = () => {
+    setIsMobileMenuOpen(false);
   };
 
-  window.addEventListener('scroll', handleScroll);
-  handleScroll(); // Run immediately on mount
-
-  return () => window.removeEventListener('scroll', handleScroll);
-}, []);
-
   return (
-    <nav className="navbar">
-      <div className="nav-logo">Tomalika Paul Toma</div>
-      <ul className="nav-links">
-        <li>
-          <a
-            href="#about"
-            className={activeSection === 'about' ? 'nav-link active' : 'nav-link'}
-          >
-            About
-          </a>
-        </li>
-        <li>
-          <a
-            href="#skills"
-            className={activeSection === 'skills' ? 'nav-link active' : 'nav-link'}
-          >
-            Skills
-          </a>
-        </li>
-        <li>
-          <a
-            href="#projects"
-            className={activeSection === 'projects' ? 'nav-link active' : 'nav-link'}
-          >
-            Projects
-          </a>
-        </li>
-        <li>
+    <header className="navbar-header">
+      <nav className="navbar-container">
+        
+        {/* Left: Boxed Tech Logo */}
+        <a href="#home" className="nav-logo-box" onClick={closeMenu} aria-label="Home">
+          <span className="logo-initials">TP</span>
+          <span className="logo-full-name">Tomalika</span>
+        </a>
+
+        {/* Center: Desktop Navigation Links (Becomes dropdown on mobile) */}
+        <ul className={`nav-menu ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
+          {NAV_ITEMS.map((item) => (
+            <li key={item.id}>
+              <a
+                href={`#${item.id}`}
+                className={`nav-link-item ${activeSection === item.id ? 'active' : ''}`}
+                onClick={closeMenu}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+          {/* Mobile-only contact link inside dropdown */}
+          <li className="mobile-only-link">
+            <a 
+              href="#contact" 
+              className={`nav-link-item ${activeSection === 'contact' ? 'active' : ''}`}
+              onClick={closeMenu}
+            >
+              Contact
+            </a>
+          </li>
+        </ul>
+
+        {/* Right: Standout "Let's Talk" CTA Button + Hamburger Icon */}
+        <div className="nav-right-actions">
           <a
             href="#contact"
-            className={activeSection === 'contact' ? 'nav-link active' : 'nav-link'}
+            className={`nav-cta-btn ${activeSection === 'contact' ? 'cta-active' : ''}`}
           >
-            Contact
+            Let's Talk
           </a>
-        </li>
-      </ul>
-    </nav>
+
+          {/* Hamburger toggle for mobile */}
+          <button 
+            type="button" 
+            className={`hamburger-btn ${isMobileMenuOpen ? 'is-active' : ''}`}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle navigation menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+      </nav>
+    </header>
   );
-}
+};
 
 export default Navbar;

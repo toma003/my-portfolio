@@ -1,92 +1,87 @@
+
+
+/* ==========================================================================
+   1. SECTION CONTAINER & LAYOUT
+   ========================================================================== */
 .skills-section {
-  padding: 5rem 2rem;
-  max-width: 1000px;
+  padding: 6rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: transparent;
+}
+
+.skills-container {
+  width: 100%;
+}
+
+/* ==========================================================================
+   2. SECTION HEADER
+   ========================================================================== */
+.skills-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.skills-subheading {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #38bdf8;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.skills-heading {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.85rem;
+}
+
+.heading-accent-line {
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+  border-radius: 99px;
   margin: 0 auto;
 }
 
-.section-header {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.section-title {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #f8fafc;
-}
-
-.section-underline {
-  width: 60px;
-  height: 4px;
-  background-color: #a855f7;
-  box-shadow: 0 0 10px rgba(168, 85, 247, 0.6);
-  margin: 0.5rem auto 0;
-  border-radius: 2px;
-}
-
+/* ==========================================================================
+   3. SKILLS GRID & SCROLL POP-UP ANIMATION
+   ========================================================================== */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
 }
 
-/* Card Surface, Border, and Universal Pointer Cursor */
-.skill-card,
-.skill-card * {
-  cursor: default;
-}
-
+/* Base card state before scrolling into view */
 .skill-card {
-  background-color: rgba(26, 16, 43, 0.55) !important;
+  background: rgba(14, 23, 42, 0.65);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(168, 85, 247, 0.2) !important;
-  border-radius: 12px;
-  padding: 1.5rem;
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(56, 189, 248, 0.15);
+  border-radius: 18px;
+  padding: 2.2rem 1.8rem;
+  display: flex;
+  flex-direction: column;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
   opacity: 0;
-  transform: translateY(30px);
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease !important;
+  transform: translateY(35px);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
-/* Make hover pop up smoothly */
-.skills-grid.is-visible .skill-card:hover,
-.skill-card:hover {
-  transform: translateY(-8px) scale(1.02) !important;
-  border-color: #a855f7 !important;
-  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(168, 85, 247, 0.35) !important;
-}
-
-.skill-category-title {
-  font-size: 1.2rem;
-  color: #c084fc;
-  margin-bottom: 1rem;
-}
-
-.skill-badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-}
-
-.skill-badge {
-  background-color: rgba(168, 85, 247, 0.15);
-  color: #f3e8ff;
-  border: 1px solid rgba(168, 85, 247, 0.3);
-  padding: 0.4rem 0.8rem;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  font-weight: 500;
-}
-
-@keyframes fadeInUp {
+/* Keyframe for entrance pop up */
+@keyframes popUpEntrance {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
+/* Staggered pop-up trigger when isVisible is true */
 .skills-grid.is-visible .skill-card {
-  animation: fadeInUp 0.7s ease-out forwards;
+  animation: popUpEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .skills-grid.is-visible .skill-card:nth-child(1) {
@@ -94,9 +89,100 @@
 }
 
 .skills-grid.is-visible .skill-card:nth-child(2) {
-  animation-delay: 0.3s;
+  animation-delay: 0.25s;
 }
 
 .skills-grid.is-visible .skill-card:nth-child(3) {
-  animation-delay: 0.5s;
+  animation-delay: 0.4s;
+}
+
+/* Hover pop-up lift effect */
+.skills-grid.is-visible .skill-card:hover,
+.skill-card:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  border-color: rgba(56, 189, 248, 0.5) !important;
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(56, 189, 248, 0.25) !important;
+  background: rgba(15, 27, 53, 0.85);
+}
+
+/* ==========================================================================
+   4. CARD INTERNALS (Icons, Text & Tags)
+   ========================================================================== */
+.skill-icon-container {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: #38bdf8;
+  transition: all 0.3s ease;
+}
+
+.skill-card:hover .skill-icon-container {
+  background: #38bdf8;
+  color: #030712;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+}
+
+.skill-icon {
+  width: 26px;
+  height: 26px;
+}
+
+.skill-card-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+}
+
+.skill-card-description {
+  font-size: 0.92rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin-bottom: 1.8rem;
+  flex-grow: 1;
+}
+
+.skill-tags-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-pill-tag {
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  color: #bae6fd;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.35rem 0.8rem;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+}
+
+.skill-card:hover .skill-pill-tag {
+  border-color: rgba(56, 189, 248, 0.4);
+}
+
+/* ==========================================================================
+   5. RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  .skills-section {
+    padding: 4rem 1.5rem;
+  }
 }
