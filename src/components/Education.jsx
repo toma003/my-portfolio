@@ -43,7 +43,7 @@ const educationData = [
     id: 3,
     level: "School",
     degree: "Secondary School Certificate (SSC) / Science",
-    institution: "The Burds Residential Model School and College",
+    institution: "The Buds Residential Model School and College",
     duration: "2008 - 2019",
     status: "Completed",
     details: "Built foundational skills in mathematics, analytical thinking, and basic computer science.",
