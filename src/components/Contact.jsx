@@ -9,7 +9,7 @@ import './Contact.css';
 const ENABLE_SCROLL_ANIMATION = true;
 
 const Contact = () => {
-  /* Scroll pop-up visibility */
+  /* Scroll pop-up visibility */ 
   const [isVisible, setIsVisible] = useState(!ENABLE_SCROLL_ANIMATION);
   const sectionRef = useRef(null);
 
@@ -32,7 +32,7 @@ const Contact = () => {
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.15 } // starts when 15% of the element is visible
     );
 
     if (sectionRef.current) {
@@ -42,12 +42,14 @@ const Contact = () => {
     return () => observer.disconnect();
   }, []);
 
+  // form input handling
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  // runs when the form is submitted
+  const handleSubmit = (e) => { 
     e.preventDefault();
     // Simulate submission
     setSubmitted(true);
@@ -63,7 +65,7 @@ const Contact = () => {
 
         {/* =========================================================
             1. UNIFIED GET IN TOUCH GLASS CARD (2 Columns)
-           ========================================================= */}
+             */}
         <div className={`contact-card ${isVisible ? 'is-visible' : ''}`}>
           
           {/* Left Column: Info & Socials */}

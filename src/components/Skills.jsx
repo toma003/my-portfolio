@@ -55,11 +55,11 @@ function Skills() {
   useEffect(() => {
     if (!ENABLE_SCROLL_ANIMATION) return;
 
-    const observer = new IntersectionObserver(
+    const observer = new IntersectionObserver( // A browser feature that watches the screen.
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.unobserve(entry.target); // Runs once when visible
+          observer.unobserve(entry.target); // Runs once when visible in the user's screen
         }
       },
       { threshold: 0.15 } // Triggers when 15% of section enters viewport
@@ -84,7 +84,7 @@ function Skills() {
         </div>
 
         {/* Grid with scroll pop-up animation */}
-        <div className={`skills-grid ${isVisible ? 'is-visible' : ''}`}>
+        <div className={`skills-grid ${ENABLE_SCROLL_ANIMATION ? (isVisible ? 'is-visible' : '') : 'no-animation'}`}>
           {skillsData.map((item, index) => (
             <div key={index} className="skill-card">
               <div className="skill-icon-container">

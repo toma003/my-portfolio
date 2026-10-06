@@ -1,7 +1,7 @@
 /* ==========================================================================
    1. SECTION CONTAINER
    ========================================================================== */
-.contact-footer-section {
+.contact-footer-section { /* Keeps the contact section centered with proper spacing. */
   padding: 6rem 2rem 3rem 2rem;
   background: transparent;
   display: flex;
@@ -15,9 +15,7 @@
   margin: 0 auto;
 }
 
-/* ==========================================================================
-   2. UNIFIED 2-COLUMN CONTACT GLASS CARD & SCROLL ENTRANCE
-   ========================================================================== */
+/*main contact card*/
 .contact-card {
   background: rgba(14, 23, 42, 0.7);
   backdrop-filter: blur(14px);
@@ -50,7 +48,7 @@
   justify-content: center;
 }
 
-.contact-badge {
+.contact-badge { /*Let's connect sentence*/
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 2px;
@@ -59,7 +57,7 @@
   display: block;
 }
 
-.contact-title {
+.contact-title { /*get in touch sentence*/
   font-size: clamp(2.2rem, 3.5vw, 3rem);
   font-weight: 800;
   color: #ffffff;
@@ -67,7 +65,7 @@
   margin-bottom: 0.5rem;
 }
 
-.contact-tagline {
+.contact-tagline { /*i'd like to hear from you sentence*/
   font-size: 1.2rem;
   font-weight: 600;
   color: #7dd3fc;
@@ -111,6 +109,7 @@
   gap: 0.85rem;
 }
 
+/* github, and linked in icon */
 .social-btn {
   width: 44px;
   height: 44px;
@@ -126,8 +125,8 @@
 }
 
 .social-btn:hover {
-  background: #38bdf8;
-  color: #030712;
+  background: #38bdf8; /*blue background*/
+  color: #030712; /*dark icon*/
   transform: translateY(-3px);
   box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
 }
@@ -146,7 +145,7 @@
   gap: 1.25rem;
 }
 
-.form-row-dual {
+.form-row-dual { 
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.25rem; /* Clean, generous gap between First and Last name */
@@ -202,13 +201,14 @@
   caret-color: #38bdf8;
 }
 
-.form-actions {
+.form-actions { /*send message button*/
   display: flex;
   align-items: center;
   gap: 1.25rem;
   margin-top: 0.5rem;
 }
 
+/* send message button */
 .contact-submit-btn {
   background: #38bdf8;
   color: #030712;
@@ -261,7 +261,7 @@
 /* ==========================================================================
    6. RESPONSIVE DESIGN (Tablets & Mobile)
    ========================================================================== */
-@media (max-width: 900px) {
+@media (max-width: 900px) { /* apply when screen is 900px or less*/
   .contact-card {
     grid-template-columns: 1fr;
     padding: 2.2rem;

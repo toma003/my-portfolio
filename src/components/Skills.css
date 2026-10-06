@@ -17,12 +17,12 @@
 /* ==========================================================================
    2. SECTION HEADER
    ========================================================================== */
-.skills-header {
+.skills-header { 
   text-align: center;
   margin-bottom: 3.5rem;
 }
 
-.skills-subheading {
+.skills-subheading { /*what i work with -- part*/
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 2px;
@@ -30,8 +30,8 @@
   text-transform: uppercase;
   margin-bottom: 0.5rem;
 }
-
-.skills-heading {
+ 
+.skills-heading { /* Technical Skills & Expertise part */
   font-size: clamp(2rem, 3.5vw, 2.75rem);
   font-weight: 700;
   color: #ffffff;
@@ -49,14 +49,14 @@
 /* ==========================================================================
    3. SKILLS GRID & SCROLL POP-UP ANIMATION
    ========================================================================== */
-.skills-grid {
+.skills-grid { /*Arranges the 3 skill cards into 3 equal side-by-side columns on desktop*/
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
 
 /* Base card state before scrolling into view */
-.skill-card {
+.skill-card { /* card background*/
   background: rgba(14, 23, 42, 0.65);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -79,7 +79,7 @@
   }
 }
 
-/* Staggered pop-up trigger when isVisible is true */
+/* Triggers the upward slide-in animation as soon as the grid scrolls into view */
 .skills-grid.is-visible .skill-card {
   animation: popUpEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
@@ -99,16 +99,22 @@
 /* Hover pop-up lift effect */
 .skills-grid.is-visible .skill-card:hover,
 .skill-card:hover {
-  transform: translateY(-8px) scale(1.02) !important;
+  transform: translateY(-8px) scale(1.02) !important; /*removing hover effect -- just make it none*/
   border-color: rgba(56, 189, 248, 0.5) !important;
   box-shadow: 0 16px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(56, 189, 248, 0.25) !important;
   background: rgba(15, 27, 53, 0.85);
+}
+/* Master kill-switch: displays cards instantly with zero animation or delay */
+.skills-grid.no-animation .skill-card {
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
 }
 
 /* ==========================================================================
    4. CARD INTERNALS (Icons, Text & Tags)
    ========================================================================== */
-.skill-icon-container {
+.skill-icon-container { /* controls the icon box */
   width: 52px;
   height: 52px;
   border-radius: 14px;
@@ -128,12 +134,12 @@
   box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
 }
 
-.skill-icon {
+.skill-icon { /* Sets standard width and height for SVG icons */
   width: 26px;
   height: 26px;
 }
 
-.skill-card-title {
+.skill-card-title { /*frontend dev*/
   font-size: 1.35rem;
   font-weight: 700;
   color: #ffffff;
@@ -154,7 +160,7 @@
   gap: 0.5rem;
 }
 
-.skill-pill-tag {
+.skill-pill-tag { /* Styles each small rounded pill tag (e.g., "React", "Java") with a cyan tint */
   background: rgba(56, 189, 248, 0.08);
   border: 1px solid rgba(56, 189, 248, 0.2);
   color: #bae6fd;
@@ -172,9 +178,9 @@
 /* ==========================================================================
    5. RESPONSIVE DESIGN
    ========================================================================== */
-@media (max-width: 1024px) {
+@media (max-width: 1024px) { 
   .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* Drops the 3 columns into 2 columns on tablets or medium screens */
   }
 }
 

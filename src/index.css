@@ -3,8 +3,8 @@
 
 :root {
   /* --- 1.1 BACKGROUND COLORS (Deep Midnight Blue) --- */
-  --bg-main: #090e1a;                    /* Deepest midnight blue base */
-  --bg-surface: #0e1726;                 /* Slightly lifted card/nav surface */
+  --bg-main: #090e1a;                    /* Deepest midnight blue base -> background color */
+  --bg-surface: #ffffff;                 /* Slightly lifted card/nav surface */
   --bg-card: rgba(15, 23, 42, 0.7);      /* Translucent card fill */
 
   /* --- 1.2 ACCENTS (Oceanic / Ben Parker style) --- */
@@ -61,6 +61,5 @@ R = Red
 G = Green
 B = Blue
 A = Alpha/transparency
-
 
 */

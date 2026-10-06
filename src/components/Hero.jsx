@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Hero.css';
-import profileImg from '../assets/profile.jpg'; // Ensure your picture is in src/assets/
+import profileImg from '../assets/profile.jpg'; // Ensure the profile picture is in src/assets/
 
 const Hero = () => {
   /* ==========================================================================
@@ -42,9 +42,9 @@ const Hero = () => {
             <span className="cursor-blink">|</span>
           </h1>
 
-          <h2 className="hero-tagline">
+          <h4 className="hero-tagline">
             Engineering student building real-world software skills.
-          </h2>
+          </h4>
 
           <p className="hero-bio">
             I'm a Computer Science and Engineering student who enjoys problem-solving

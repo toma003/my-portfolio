@@ -1,6 +1,9 @@
 /* ==========================================================================
    1. SECTION CONTAINER & WRAPPER
    ========================================================================== */
+
+
+/* Gives top and bottom breathing room to the whole Education section and centers it */
 .education-section {
   padding: 6rem 2rem;
   background: transparent;
@@ -23,7 +26,7 @@
   margin-bottom: 3.5rem;
 }
 
-.education-subheading {
+.education-subheading { /* Styles the small cyan uppercase text ("ACADEMIC JOURNEY") above the main title */
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 2px;
@@ -32,7 +35,7 @@
   margin-bottom: 0.5rem;
 }
 
-.education-heading {
+.education-heading { /* Styles the big white title ("Educational Background") and scales it between phone & desktop */
   font-size: clamp(2rem, 3.5vw, 2.75rem);
   font-weight: 700;
   color: #ffffff;
@@ -105,7 +108,7 @@
 /* ==========================================================================
    4. GLASS TIMELINE CARDS
    ========================================================================== */
-.timeline-card {
+.timeline-card { /* Styles the frosted dark glass box for each degree (University, College, School) */
   flex: 1;
   background: rgba(14, 23, 42, 0.65);
   backdrop-filter: blur(12px);
@@ -204,10 +207,13 @@
   transform: translateX(3px);
 }
 
+
+/*start from here*/
+
 /* ==========================================================================
    5. POP-UP MODAL DIALOG (Isolated for easy inspection/removal)
    ========================================================================== */
-.education-modal-backdrop {
+.education-modal-backdrop { /*This styles the dark area behind the popup*/
   position: fixed;
   inset: 0;
   background: rgba(4, 8, 20, 0.8);
@@ -221,7 +227,7 @@
   animation: fadeInModal 0.2s ease-out;
 }
 
-.education-modal-card {
+.education-modal-card { /*This is the popup box itself*/
   background: #0b1329;
   border: 1px solid rgba(56, 189, 248, 0.3);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(56, 189, 248, 0.15);
@@ -233,14 +239,14 @@
   animation: scaleUpModal 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.modal-header {
+.modal-header {  /* Top bar containing the level badge ("University") and the "✕" button */
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.25rem;
 }
 
-.modal-close-btn {
+.modal-close-btn { /*Styles the X button*/
   background: transparent;
   border: none;
   color: #94a3b8;
@@ -256,24 +262,24 @@
   background: rgba(255, 255, 255, 0.1);
 }
 
-.modal-degree-title {
+.modal-degree-title { /* Main title inside modal (e.g., "B.Sc. in CSE") */
   font-size: 1.4rem;
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 0.3rem;
 }
 
-.modal-institution-subtitle {
+.modal-institution-subtitle { /* Subtitle line (University name + duration period) */
   font-size: 0.95rem;
   color: #7dd3fc;
   margin-bottom: 1.25rem;
 }
 
-.modal-period {
+.modal-period { /*2024 - Present*/
   color: #818cf8;
 }
 
-.modal-info-pill {
+.modal-info-pill { /* Horizontal pill box holding the GPA/Result details */
   background: rgba(56, 189, 248, 0.08);
   border: 1px solid rgba(56, 189, 248, 0.2);
   padding: 0.6rem 1rem;
@@ -285,15 +291,15 @@
   gap: 0.5rem;
 }
 
-.modal-info-pill strong {
+.modal-info-pill strong { /* "Result / GPA:" bold prefix inside the pill */
   color: #38bdf8;
 }
 
-.modal-section-block {
+.modal-section-block { /* Container wrappers for the Courses and Highlights sections */
   margin-bottom: 1.25rem;
 }
 
-.modal-block-label {
+.modal-block-label { /* Small category labels ("KEY FOCUS & COURSES", "ACADEMIC HIGHLIGHTS") */
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -301,34 +307,34 @@
   margin-bottom: 0.6rem;
 }
 
-.modal-tags {
+.modal-tags { /* Container holding the course pill badges */
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
 
-.modal-tag-chip {
+.modal-tag-chip { /* Individual course badge (e.g., "OOP (Java)", "Database Systems") */
   background: rgba(14, 23, 42, 0.8);
   border: 1px solid rgba(56, 189, 248, 0.2);
-  color: #bae6fd;
+  color: #bab6fd;
   font-size: 0.8rem;
   padding: 0.35rem 0.75rem;
   border-radius: 999px;
 }
 
-.modal-highlight-text {
+.modal-highlight-text { /* Paragraph text under "Academic Highlights" */
   font-size: 0.92rem;
   color: #94a3b8;
   line-height: 1.6;
 }
-
-.modal-footer {
+ 
+.modal-footer { /* Bottom action row holding the "Done" button */
   margin-top: 1.8rem;
   display: flex;
   justify-content: flex-end;
 }
 
-.modal-action-btn {
+.modal-action-btn { /*styles the Done button*/
   background: #38bdf8;
   color: #030712;
   font-weight: 600;

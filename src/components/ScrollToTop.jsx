@@ -18,7 +18,7 @@ function ScrollToTop() {
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
 
-  const scrollToTop = () => {
+  const scrollToTop = () => { // taking the user back to the top.
     window.scrollTo({
       top: 0,
       behavior: 'smooth',

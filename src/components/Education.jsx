@@ -23,7 +23,7 @@ const educationData = [
     details: "Focusing on data structures, algorithms, database systems, and full-stack software development, etc",
     // Pop-up extra details:
     gpa: "3.89 / 4.00 (till 7-th semester)",
-    keyCourses: ["Data Structures & Algorithms", "Database Systems", "OOP (Java)", "Software Engineering and Design Pattern etc"],
+    keyCourses: ["Data Structures & Algorithms", "Database Systems", "OOP (Java)", "Software Engineering and Design Pattern", "etc"],
     highlights: "Active member of programming club; completed multiple semester projects in Java and web technologies."
   },
   {
@@ -50,7 +50,7 @@ const educationData = [
     // Pop-up extra details:
     gpa: "GPA 5.00 / 5.00",
     keyCourses: ["General Mathematics", "Higher Math", "General Science", "Computer Studies"],
-    highlights: "Participated in science fairs and mathematics olympiad competitions."
+    highlights: "Participated in science fairs and multiple other competitions."
   }
 ];
 
@@ -71,11 +71,11 @@ const Education = () => {
 
   return (
     <section className="education-section" id="education">
-      <div className="education-container">
+      <div className="education-container"> 
 
         {/* Section Header */}
         <div className="education-header">
-          <p className="education-subheading">ACADEMIC JOURNEY</p>
+          <p className="education-subheading">ACADEMIC JOURNEY</p> 
           <h2 className="education-heading">Educational Background</h2>
           <div className="heading-accent-line"></div>
           {ENABLE_MODAL_POPUP && (

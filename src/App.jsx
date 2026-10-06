@@ -4,7 +4,6 @@ import Education from './components/Education';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
-// import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 
 import './App.css';
@@ -24,28 +23,9 @@ function App() {
       <Skills />
       <Projects />
       <Contact />
-      {/* <Footer /> */}
       <ScrollToTop />
     </div>
   );
 }
-
-
-// function App() {
-//   return (
-//     <div>
-//       <Navbar />
-//       <main>
-//         <Hero />
-//         <Skills />
-//         <Projects />
-//         <Contact />
-//         <Footer />
-//         <ScrollToTop />
-//       </main>
-      
-//     </div>
-//   );
-// }
 
 export default App;

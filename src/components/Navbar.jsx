@@ -17,7 +17,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = () => { // Figure out where the user currently is on the page.
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
@@ -44,7 +44,7 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll); // clean-up function
   }, []);
 
   const closeMenu = () => {
@@ -58,7 +58,7 @@ const Navbar = () => {
         {/* Left: Boxed Tech Logo */}
         <a href="#home" className="nav-logo-box" onClick={closeMenu} aria-label="Home">
           <span className="logo-initials">TP</span>
-          <span className="logo-full-name">Tomalika</span>
+          {/* <span className="logo-full-name"></span> */}
         </a>
 
         {/* Center: Desktop Navigation Links (Becomes dropdown on mobile) */}
