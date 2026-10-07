@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 
-/* ==========================================================================
-   NAVIGATION CONFIGURATION
-   (Edit or add sections here)
-   ========================================================================== */
+/* (Edit or add sections here) */
 const NAV_ITEMS = [
   { id: 'home', label: 'Home' },
   { id: 'education', label: 'Education' },
@@ -17,7 +14,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => { // Figure out where the user currently is on the page.
+    const handleScroll = () => {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
@@ -58,7 +55,6 @@ const Navbar = () => {
         {/* Left: Boxed Tech Logo */}
         <a href="#home" className="nav-logo-box" onClick={closeMenu} aria-label="Home">
           <span className="logo-initials">TP</span>
-          {/* <span className="logo-full-name"></span> */}
         </a>
 
         {/* Center: Desktop Navigation Links (Becomes dropdown on mobile) */}

@@ -1,6 +1,4 @@
-/* ==========================================================================
-   1. NAVBAR FIXED HEADER & BLURRED BACKDROP
-   ========================================================================== */
+/* 1. navbar fixed header & blurred backdrop */
 .navbar-header {
   position: fixed;
   top: 0;
@@ -26,9 +24,7 @@
   box-sizing: border-box;
 }
 
-/* ==========================================================================
-   2. BOXED MONOGRAM LOGO
-   ========================================================================== */
+/* 2. boxed monogram logo\ */
 .nav-logo-box {
   display: inline-flex;
   align-items: center;
@@ -70,9 +66,7 @@
   letter-spacing: -0.3px;
 }
 
-/* ==========================================================================
-   3. NAVIGATION LINKS
-   ========================================================================== */
+/* 3. navigation link */
 .nav-menu {
   display: flex;
   align-items: center;
@@ -109,9 +103,7 @@
   font-weight: 600;
 }
 
-/* ==========================================================================
-   4. RIGHT ACTIONS (Let's Talk + Hamburger)
-   ========================================================================== */
+/* 4. RIGHT ACTIONS (Let's Talk + Hamburger) */
 .nav-right-actions {
   display: flex;
   align-items: center;
@@ -166,7 +158,7 @@
   transition: all 0.3s ease;
 }
 
-/* Hamburger transform into 'X' when open */
+
 .hamburger-btn.is-active span:nth-child(1) {
   transform: translateY(8.5px) rotate(45deg);
 }
@@ -179,9 +171,6 @@
   transform: translateY(-8.5px) rotate(-45deg);
 }
 
-/* ==========================================================================
-   5. RESPONSIVE DESIGN (Mobile Dropdown Drawer)
-   ========================================================================== */
 @media (max-width: 768px) {
   .navbar-container {
     padding: 0.75rem 1.25rem;

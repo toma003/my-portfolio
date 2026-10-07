@@ -1,17 +1,9 @@
 import React, { useState } from 'react';
 import './Education.css';
 
-/* ==========================================================================
-   TEACHER CONTROL SWITCH: POP-UP TOGGLE
-   Set to `true` to enable card click pop-ups.
-   Set to `false` if your teacher asks you to turn the pop-up off.
-   ========================================================================== */
-const ENABLE_MODAL_POPUP = true;
+const ENABLE_MODAL_POPUP = true; // Set to `true` to enable card click pop-ups else set false
 
-/* ==========================================================================
-   EDUCATION DATA
-   Add courses, achievements, and GPA details shown inside the pop-up modal.
-   ========================================================================== */
+/* Add courses, achievements, and GPA details shown inside the pop-up modal. */
 const educationData = [
   {
     id: 1,
@@ -55,9 +47,6 @@ const educationData = [
 ];
 
 const Education = () => {
-  /* ==========================================================================
-     POP-UP MODAL STATE & HANDLERS (Isolated for easy defense/removal)
-     ========================================================================== */
   const [selectedItem, setSelectedItem] = useState(null);
 
   const handleCardClick = (item) => {
@@ -124,10 +113,6 @@ const Education = () => {
 
       </div>
 
-      {/* ==========================================================================
-          MODAL POP-UP OVERLAY
-          (Rendered only when a card is clicked and ENABLE_MODAL_POPUP is true)
-         ========================================================================== */}
       {ENABLE_MODAL_POPUP && selectedItem && (
         <div className="education-modal-backdrop" onClick={handleCloseModal}>
           <div 

@@ -1,9 +1,4 @@
-/* ==========================================================================
-   1. SECTION CONTAINER & WRAPPER
-   ========================================================================== */
 
-
-/* Gives top and bottom breathing room to the whole Education section and centers it */
 .education-section {
   padding: 6rem 2rem;
   background: transparent;
@@ -18,15 +13,13 @@
   margin: 0 auto;
 }
 
-/* ==========================================================================
-   2. SECTION HEADER
-   ========================================================================== */
+/* 2. SECTION HEADER */
 .education-header {
   text-align: center;
   margin-bottom: 3.5rem;
 }
 
-.education-subheading { /* Styles the small cyan uppercase text ("ACADEMIC JOURNEY") above the main title */
+.education-subheading { 
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 2px;
@@ -56,9 +49,6 @@
   margin-top: 0.5rem;
 }
 
-/* ==========================================================================
-   3. TIMELINE SPINE & NODES
-   ========================================================================== */
 .education-timeline {
   position: relative;
   display: flex;
@@ -105,10 +95,8 @@
   box-shadow: 0 0 20px #38bdf8;
 }
 
-/* ==========================================================================
-   4. GLASS TIMELINE CARDS
-   ========================================================================== */
-.timeline-card { /* Styles the frosted dark glass box for each degree (University, College, School) */
+
+.timeline-card { 
   flex: 1;
   background: rgba(14, 23, 42, 0.65);
   backdrop-filter: blur(12px);
@@ -207,13 +195,7 @@
   transform: translateX(3px);
 }
 
-
-/*start from here*/
-
-/* ==========================================================================
-   5. POP-UP MODAL DIALOG (Isolated for easy inspection/removal)
-   ========================================================================== */
-.education-modal-backdrop { /*This styles the dark area behind the popup*/
+.education-modal-backdrop { 
   position: fixed;
   inset: 0;
   background: rgba(4, 8, 20, 0.8);
@@ -295,7 +277,7 @@
   color: #38bdf8;
 }
 
-.modal-section-block { /* Container wrappers for the Courses and Highlights sections */
+.modal-section-block { 
   margin-bottom: 1.25rem;
 }
 
@@ -307,7 +289,7 @@
   margin-bottom: 0.6rem;
 }
 
-.modal-tags { /* Container holding the course pill badges */
+.modal-tags { 
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
@@ -362,9 +344,6 @@
   to { opacity: 1; transform: scale(1); }
 }
 
-/* ==========================================================================
-   6. RESPONSIVE DESIGN (Mobile)
-   ========================================================================== */
 @media (max-width: 650px) {
   .education-timeline {
     padding-left: 0.5rem;

@@ -1,6 +1,4 @@
-/* ==========================================================================
-   1. SECTION CONTAINER & BASE
-   ========================================================================== */
+
 .projects-section {
   padding: 6rem 2rem;
   background: transparent;
@@ -15,9 +13,7 @@
   margin: 0 auto;
 }
 
-/* ==========================================================================
-   2. SECTION HEADER
-   ========================================================================== */
+/* 2.Section Header */
 .projects-header {
   text-align: center;
   margin-bottom: 3.5rem;
@@ -47,9 +43,13 @@
   margin: 0 auto;
 }
 
-/* ==========================================================================
-   3. 3-COLUMN CARDS GRID & CARDS
-   ========================================================================== */
+.projects-hint {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-top: 0.6rem;
+}
+
+/* 3. 3-column cards grid & cards */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -71,6 +71,10 @@
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
+.clickable-card {
+  cursor: pointer;
+}
+
 /* Hover Lift */
 .projects-grid.is-visible .project-card:hover,
 .project-card:hover {
@@ -80,7 +84,7 @@
   background: rgba(15, 27, 53, 0.85);
 }
 
-/* Scroll Entrance Animation (controlled via JSX ENABLE_SCROLL_ANIMATION) */
+/* Scroll Entrance Animation */
 .project-card.has-scroll-anim {
   opacity: 0;
   transform: translateY(35px);
@@ -109,9 +113,7 @@
   animation-delay: 0.4s;
 }
 
-/* ==========================================================================
-   4. CARD BANNER & CONTENT
-   ========================================================================== */
+/* 4. card banner & content */
 .project-banner {
   height: 140px;
   background: linear-gradient(135deg, rgba(56, 189, 248, 0.15) 0%, rgba(37, 99, 235, 0.08) 100%);
@@ -143,6 +145,12 @@
   letter-spacing: 1px;
   font-weight: 600;
   color: #7dd3fc;
+}
+
+.banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .project-card-body {
@@ -187,6 +195,7 @@
 /* Card Footer Actions */
 .project-card-footer {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding-top: 1rem;
   border-top: 1px solid rgba(56, 189, 248, 0.1);
@@ -210,7 +219,216 @@
   box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
 }
 
-/* 5. RESPONSIVE DESIGN */
+.project-inspect-link {
+  background: transparent;
+  border: none;
+  color: #7dd3fc;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.project-inspect-link:hover {
+  color: #ffffff;
+  transform: translateX(3px);
+}
+
+/* ==========================================================================
+   5. MODAL POP-UP DIALOG
+   ========================================================================== */
+.project-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 8, 20, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+/* Modal Animations */
+.project-modal-backdrop.animate-fade {
+  animation: fadeInModal 0.2s ease-out;
+}
+
+.project-modal-card {
+  background: #0b1329;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 35px rgba(56, 189, 248, 0.2);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 600px;
+  padding: 2.2rem;
+}
+
+.project-modal-card.animate-scale {
+  animation: scaleUpModal 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeInModal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUpModal {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.25rem;
+}
+
+.modal-category-badge {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-top: 0.2rem;
+}
+
+.modal-close-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.modal-overview {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin-bottom: 1.4rem;
+}
+
+.modal-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  background: rgba(14, 23, 42, 0.7);
+  border: 1px solid rgba(56, 189, 248, 0.15);
+  padding: 0.85rem 1.2rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.meta-box {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.meta-label {
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+.meta-value {
+  color: #ffffff;
+}
+
+.modal-block {
+  margin-bottom: 1.4rem;
+}
+
+.modal-block-title {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #94a3b8;
+  margin-bottom: 0.6rem;
+}
+
+.modal-features-list {
+  padding-left: 1.2rem;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.modal-tags-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.modal-tech-badge {
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  color: #bae6fd;
+  font-size: 0.8rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+}
+
+.modal-footer-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.8rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(56, 189, 248, 0.12);
+}
+
+.modal-github-btn {
+  color: #38bdf8;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.modal-github-btn:hover {
+  text-decoration: underline;
+}
+
+.modal-close-action {
+  background: #38bdf8;
+  color: #030712;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.65rem 1.4rem;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-close-action:hover {
+  background: #7dd3fc;
+  box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
+}
+
+/* 6. responsive design */
 @media (max-width: 1024px) {
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -223,5 +441,8 @@
   }
   .projects-section {
     padding: 4rem 1.5rem;
+  }
+  .project-modal-card {
+    padding: 1.5rem;
   }
 }

@@ -1,12 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './Contact.css';
 
-/* ==========================================================================
-   TEACHER CONTROL SWITCH: SCROLL POP-UP TOGGLE
-   Set to `true` to animate the contact card smoothly on scroll.
-   Set to `false` to display immediately without animation.
-   ========================================================================== */
-const ENABLE_SCROLL_ANIMATION = true;
+
+const ENABLE_SCROLL_ANIMATION = true; /*Set to `true` to animate the contact card or else set to false */
 
 const Contact = () => {
   /* Scroll pop-up visibility */ 
@@ -63,9 +59,6 @@ const Contact = () => {
     <section className="contact-footer-section" id="contact" ref={sectionRef}>
       <div className="contact-wrapper">
 
-        {/* =========================================================
-            1. UNIFIED GET IN TOUCH GLASS CARD (2 Columns)
-             */}
         <div className={`contact-card ${isVisible ? 'is-visible' : ''}`}>
           
           {/* Left Column: Info & Socials */}
@@ -183,9 +176,7 @@ const Contact = () => {
 
         </div>
 
-        {/* =========================================================
-            2. INTEGRATED FOOTER BAR (Clean & Centered)
-           ========================================================= */}
+        {/* footer bar */}
         <div className="integrated-footer">
           <p className="footer-copyright">
             Designed & Built by <span className="highlight-name">Tomalika Paul Toma</span> • © {new Date().getFullYear()}

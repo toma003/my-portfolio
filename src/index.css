@@ -24,7 +24,7 @@
   --text-tagline: #38bdf8;               /* Small cyan overhead text */
 }
 
-/* Ensure all elements calculate border and padding inside width */
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -35,13 +35,13 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Prevent accidental horizontal overflow on mobile screens */
+
 body {
   overflow-x: hidden;
   width: 100%;
 }
 
-/* Background gradient matching Ben Parker's canvas */
+
 body {
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background-color: var(--bg-main);

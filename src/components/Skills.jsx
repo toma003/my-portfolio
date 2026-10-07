@@ -3,9 +3,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import './Skills.css';
 
 /* ==========================================================================
-   TEACHER CONTROL SWITCH: SCROLL POP-UP ANIMATION
    Set to `true` to animate cards when scrolling into view.
-   Set to `false` if your teacher asks to show cards immediately.
+   Set to `false` to show cards immediately.
    ========================================================================== */
 const ENABLE_SCROLL_ANIMATION = true;
 
@@ -46,9 +45,7 @@ const skillsData = [
 ];
 
 function Skills() {
-  /* ==========================================================================
-     INTERSECTION OBSERVER LOGIC (Triggers pop-up entrance on scroll)
-     ========================================================================== */
+  /* Triggers pop-up entrance on scroll */
   const [isVisible, setIsVisible] = useState(!ENABLE_SCROLL_ANIMATION);
   const sectionRef = useRef(null);
 

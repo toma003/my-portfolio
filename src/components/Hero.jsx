@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import './Hero.css';
-import profileImg from '../assets/profile.jpg'; // Ensure the profile picture is in src/assets/
+import profileImg from '../assets/profile.jpg';
+
+
+const ENABLE_TYPING_ANIMATION = true; // <-- change only this word (true / false)
 
 const Hero = () => {
-  /* ==========================================================================
-     FEATURE: TYPING ANIMATION STATE & LOGIC
-     (If teacher asks to remove typing effect, delete this block and replace 
-      {displayedName} in <h1> with your static name text)
-     ========================================================================== */
   const fullText = "Tomalika Paul Toma.";
-  const [displayedName, setDisplayedName] = useState("");
-  const typingSpeed = 150;     // Milliseconds per character
+  
+  // If switch is true -> starts empty (""); if false -> starts with full name immediately
+  const [displayedName, setDisplayedName] = useState(ENABLE_TYPING_ANIMATION ? "" : fullText);
+  const typingSpeed = 150; // Milliseconds per character
 
   useEffect(() => {
+    // 1-line exit: if disabled, do not run typing effect at all
+    if (!ENABLE_TYPING_ANIMATION) return;
+
     let currentIndex = 0;
     const interval = setInterval(() => {
       if (currentIndex <= fullText.length) {
@@ -29,17 +32,13 @@ const Hero = () => {
   return (
     <section className="hero" id="home">
       <div className="hero-container">
-        
-        {/* =========================================================
-            LEFT COLUMN: TEXT & CALL TO ACTIONS
-           ========================================================= */}
         <div className="hero-content">
           <p className="hero-greeting">Hi, my name is</p>
           
-          {/* Animated Name Heading with Blinking Cursor Pipe */}
           <h1 className="hero-name">
             {displayedName}
-            <span className="cursor-blink">|</span>
+            {/* Blinking cursor only shows when typing animation is enabled */}
+            {ENABLE_TYPING_ANIMATION && <span className="cursor-blink">|</span>}
           </h1>
 
           <h4 className="hero-tagline">
@@ -63,9 +62,7 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* =========================================================
-            RIGHT COLUMN: ARCHED PORTAL PROFILE PICTURE
-           ========================================================= */}
+        {/* right column: arched portal profile picture */}
         <div className="hero-visual">
           <div className="portal-glow-ring">
             <div className="portal-frame">

@@ -1,8 +1,6 @@
 
 
-/* ==========================================================================
-   1. SECTION CONTAINER & LAYOUT
-   ========================================================================== */
+/*section container & layout*/
 .skills-section {
   padding: 6rem 2rem;
   max-width: 1200px;
@@ -14,9 +12,7 @@
   width: 100%;
 }
 
-/* ==========================================================================
-   2. SECTION HEADER
-   ========================================================================== */
+/* 2. section header */
 .skills-header { 
   text-align: center;
   margin-bottom: 3.5rem;
@@ -46,9 +42,7 @@
   margin: 0 auto;
 }
 
-/* ==========================================================================
-   3. SKILLS GRID & SCROLL POP-UP ANIMATION
-   ========================================================================== */
+
 .skills-grid { /*Arranges the 3 skill cards into 3 equal side-by-side columns on desktop*/
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -111,9 +105,7 @@
   animation: none !important;
 }
 
-/* ==========================================================================
-   4. CARD INTERNALS (Icons, Text & Tags)
-   ========================================================================== */
+/* Icons, Text & Tags */
 .skill-icon-container { /* controls the icon box */
   width: 52px;
   height: 52px;
@@ -175,9 +167,6 @@
   border-color: rgba(56, 189, 248, 0.4);
 }
 
-/* ==========================================================================
-   5. RESPONSIVE DESIGN
-   ========================================================================== */
 @media (max-width: 1024px) { 
   .skills-grid {
     grid-template-columns: repeat(2, 1fr); /* Drops the 3 columns into 2 columns on tablets or medium screens */
