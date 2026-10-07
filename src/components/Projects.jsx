@@ -44,17 +44,24 @@ const Projects = () => {
               key={project.id} 
               className={`project-card ${ENABLE_SCROLL_ANIMATION ? 'has-scroll-anim' : ''}`}
             >
+              {/* Category / Icon Header (Image support removed) */}
               <div className="project-banner">
-                {project.image ? (
-                  <img src={project.image} alt={project.title} className="banner-img" />
-                ) : (
-                  <div className="banner-placeholder">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="banner-icon">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" />
-                    </svg>
-                    <span className="banner-category">{project.category}</span>
-                  </div>
-                )}
+                <div className="banner-placeholder">
+                  <svg 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="1.6" 
+                    className="banner-icon"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" 
+                    />
+                  </svg>
+                  <span className="banner-category">{project.category}</span>
+                </div>
               </div>
 
               <div className="project-card-body">
