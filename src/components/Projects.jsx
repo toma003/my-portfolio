@@ -47,7 +47,7 @@ const Projects = () => {
           )}
         </div>
 
-        {/* 3-Column Grid */}
+        {/* Projects Grid */}
         <div className={`projects-grid ${isVisible && ENABLE_SCROLL_ANIMATION ? 'is-visible' : ''}`}>
           {projectsData && projectsData.map((project) => (
             <div 
@@ -79,9 +79,15 @@ const Projects = () => {
                 </div>
 
                 <div className="project-card-footer" onClick={(e) => e.stopPropagation()}>
-                  <a href={project.githubUrl} target="_blank" rel="noreferrer" className="btn-github">
-                    GitHub ↗
-                  </a>
+                  {/* CONDITIONAL RENDER: Shows GitHub button if link exists, else shows Hardware badge */}
+                  {project.githubUrl ? (
+                    <a href={project.githubUrl} target="_blank" rel="noreferrer" className="btn-github">
+                      GitHub ↗
+                    </a>
+                  ) : (
+                    <span className="badge-hardware">Hardware</span>
+                  )}
+
                   {ENABLE_PROJECT_MODAL && (
                     <button type="button" className="project-inspect-link" onClick={() => handleOpenModal(project)}>
                       Details →
@@ -138,9 +144,12 @@ const Projects = () => {
             </div>
 
             <div className="modal-footer-actions">
-              <a href={activeProject.githubUrl} target="_blank" rel="noreferrer" className="modal-github-btn">
-                View on GitHub ↗
-              </a>
+              {/* CONDITIONAL RENDER: Only shows View on GitHub button in modal if link exists */}
+              {activeProject.githubUrl && (
+                <a href={activeProject.githubUrl} target="_blank" rel="noreferrer" className="modal-github-btn">
+                  View on GitHub ↗
+                </a>
+              )}
               <button type="button" className="modal-close-action" onClick={handleCloseModal}>Close</button>
             </div>
           </div>

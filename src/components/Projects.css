@@ -428,6 +428,17 @@
   box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
 }
 
+.badge-hardware {
+  font-size: 0.8rem;
+  color: #7dd3fc;
+  background: rgba(129, 140, 248, 0.1);
+  border: 1px solid rgba(129, 140, 248, 0.3);
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  display: inline-block;
+}
+
 /* 6. responsive design */
 @media (max-width: 1024px) {
   .projects-grid {

@@ -58,5 +58,24 @@ export const projectsData = [
         "Applied a cyber-navy design theme using pure CSS variables and Flexbox/Grid layouts."
       ]
     }
+  },
+{
+    id: 4,
+    category: "HARDWARE / EMBEDDED SYSTEM",
+    title: "HydroAlert — Smart Water Monitoring System",
+    description: "An offline smart water bottle concept built with an ESP32 microcontroller to track hydration levels in real time and deliver timely auditory and visual reminders to maintain daily water intake habits.",
+    tags: ["ESP32 / C++", "HW-038 Water Sensor", "Embedded Systems", "IoT"],
+    githubUrl: null,
+    liveUrl: null,
+    modalData: {
+      type: "Smart Hardware Prototype",
+      duration: "Academic Project",
+      keyFeatures: [
+        "Real-time water level sensing using an HW-038 sensor inside the container",
+        "Timed audio and visual hydration reminders via buzzer and LED indicators",
+        "Low-power ESP32 microcontroller firmared in C++ for offline execution",
+        "Interactive push-button controls for reset and user preference adjustments"
+      ]
+    }
   }
 ];
